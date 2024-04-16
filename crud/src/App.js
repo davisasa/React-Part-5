@@ -18,11 +18,11 @@ function App() {
   }
 
   const deleteUser = (userId) => {
-    let filteredArr = users.filter ((users) => {
-      if (users.id !== userId) return users;
+    let filteredArr = users.filter((user) => {
+      return user.id !== userId;
     });
-
-    setUsers(filteredArr)
+  
+    setUsers(filteredArr);
   };
 
   const editUser = (userId, newUserDetails) => {
@@ -40,17 +40,23 @@ function App() {
   console.log(users);
   return (
 
-    
     <Container>
       <Row>
-        <Col>
-            <UserForms addUser= {addNewUser} />
-        </Col>
-        <Col>
+      <Col md={6}>
+      <UserForms addUser= {addNewUser} /> 
+       </Col>  
+
+    
+                 
+       <Col md={6}>
             <UserList users={users} deleteUser={deleteUser} editUser={editUser}/>
-        </Col>
+       </Col>  
+        
       </Row>
     </Container>
+ 
+
+   
   );
 }
 
